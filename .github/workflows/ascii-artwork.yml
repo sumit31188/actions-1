@@ -27,7 +27,6 @@ jobs:
             uses: actions/download-artifact@v8
             with:
                   name: my-artifact
-                  path: dragon.txt
           - name: test phase
             # - name: Execute shell script
             #   run: |
@@ -46,6 +45,5 @@ jobs:
             uses: actions/download-artifact@v8
             with:
                 name: my-artifact
-                path: dragon.txt
           - name: deploy stage
             run: grep -i "dragon" dragon.txt
