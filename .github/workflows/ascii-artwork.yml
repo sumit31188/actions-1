@@ -9,6 +9,10 @@ jobs:
 
             - name: list repo files
               run: ls -ltra
+            - name: cowsay artwork
+              run: | 
+                  sudo apt-get install cowsay -y
+                  cowsay -f dragon >> dragon.txt
     test_job_2:
         runs-on: ubuntu-latest
         steps:
@@ -20,10 +24,10 @@ jobs:
             
             # - name: list files
             #   run: ls -a
-              run: cat README.md
+              run: cat dragon.txt
 
     deploy_job_3:
         runs-on: ubuntu-latest
         steps:
             - name: deploy stage
-              run: echo "Deploy stage"
+              run: grep -i dragon.txt
