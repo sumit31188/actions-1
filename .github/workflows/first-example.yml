@@ -7,11 +7,16 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v6
               
-            - name: welcome message
-              run: echo "my first github action"
+            - name: Multiline Command Execution
+              run: |
+                echo "my first github action"
+                ls -ltr
+                cat README.md
             
-            - name: list files
-              run: ls -a
+            - name: Cowsay artwork
+              run: cowsay -f dragon
+            # - name: list files
+            #   run: ls -a
             
-            - name: Read file
-              run: cat README.md
+            # - name: Read file
+            #   run: cat README.md
