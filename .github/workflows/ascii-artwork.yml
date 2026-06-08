@@ -1,4 +1,4 @@
-name: my first workflow
+name: ASCII Artwork workflow
 on: push
 jobs:
     firstjob:
@@ -6,18 +6,21 @@ jobs:
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v6
-              
-            - name: Multiline Command Execution
-              run: |
-                echo "my first github action"
-                ls -ltr
-                cat README.md
 
             - name: install cowsay library
-              run: apt install cowsay
+              run: sudo apt-install cowsay -y
             
             - name: ASCII artwork
-              run: cowsay -f dragon
+              run: cowsay -f dragon >> dragon.txt
+
+            - name: read dragon.txt
+              run: cat dragon.txt
+
+            - name: list files
+              run: |
+                echo "my first github action"
+                ls -ltra
+                cat README.md
             # - name: list files
             #   run: ls -a
             
