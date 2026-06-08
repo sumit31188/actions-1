@@ -14,6 +14,7 @@ jobs:
                   sudo apt-get install cowsay -y
                   cowsay -f dragon >> dragon.txt
     test_job_2:
+        needs: build_job_1
         runs-on: ubuntu-latest
         steps:
             - name: test phase
@@ -27,6 +28,7 @@ jobs:
               run: cat dragon.txt
 
     deploy_job_3:
+        needs: test_job_2
         runs-on: ubuntu-latest
         steps:
             - name: deploy stage
