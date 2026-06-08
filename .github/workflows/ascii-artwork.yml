@@ -7,20 +7,14 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v6
 
-            - name: install cowsay library
-              run: sudo apt-get install cowsay -y
-            
-            - name: ASCII artwork
-              run: cowsay -f dragon >> dragon.txt
+            - name: list repo files
+              run: ls -ltra
 
-            - name: read dragon.txt
-              run: cat dragon.txt
-
-            - name: list files
+            - name: Execute shell script
               run: |
-                echo "my first github action"
-                ls -ltra
-                cat README.md
+                chmod +x ascii_script.sh
+                ./ascii_script.sh
+            
             # - name: list files
             #   run: ls -a
             
